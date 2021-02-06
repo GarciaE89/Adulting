@@ -15,8 +15,8 @@ body {
   
   .jumbotron {
     text-align: center;
-    background-color: transparent;
-    color: black;
+    background-color: rgb(41, 148, 175);
+    color: rgb(248, 230, 230);
     border-radius: 0;
     border-bottom: 10px solid black;
   }
@@ -28,6 +28,7 @@ body {
   .time-block{
     text-align: center;
     border-radius: 15px;
+    border-color: rgb(8, 8, 8);
   }
   
   .row {
