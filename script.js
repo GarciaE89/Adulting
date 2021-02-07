@@ -15,7 +15,7 @@ $(document).ready(function () {
         var newRow = $("<div class='row'></div>");
         $('.container').append(newRow);
         var timeAm = $(`<div class='col-1 time-block'>${plannerHours.Morning[amHours]}AM</div>`);
-        var textSpace = $(`<textarea class="col-10">Organize your schedule</textarea>`);
+        var textSpace = $(`<textarea class="col-10 id="yourtext"">Organize your schedule</textarea>`);
         var saveBtn = $('<button class="col-1 saveBtn">Save</button>');
         $(newRow).append(timeAm, textSpace, saveBtn);
 
@@ -27,8 +27,8 @@ $(document).ready(function () {
     for (var pmHours = 0; pmHours < plannerHours.Afternoon.length; pmHours++) {
         var newRow = $("<div class='row'></div>");
         $('.container').append(newRow);
-        var timePm = $(`<div class='col-1 time-block'>${plannerHours.Afternoon[pmHours]}PM</div>`);
-        var textSpace = $(`<textarea class="col-10">Organize your schedule</textarea>`);
+        var timePm = $(`<div class='col-1 time-block' >${plannerHours.Afternoon[pmHours]}PM</div>`);
+        var textSpace = $(`<textarea class="col-10" id="yourtext">Organize your schedule</textarea>`);
         var saveBtn = $('<button class="col-1 saveBtn">Save</button>');
         $(newRow).append(timePm, textSpace, saveBtn);
     }
@@ -36,9 +36,15 @@ $(document).ready(function () {
     $(".saveBtn").click( function () {
     
         console.log(this);
-        // var textarea = $(this).siblings("textarea").val();
-        // // var time = $(this).parent().attr("id");
+        var textData = $(this).siblings("textarea").val();
+        var time = $(this).siblings("time-block").val();
+        console.log(time)
 
         
-        // localStorage.setItem(textarea)
+        localStorage.setItem(time, textData)
+        document.getElementById("yourtext").innerHTML = localStorage.getItem("yourtext");
+
     })})
+
+    
+    
